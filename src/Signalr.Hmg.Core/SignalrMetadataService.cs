@@ -67,24 +67,16 @@ namespace Signalr.Hmg.Core
             
             var cache = this.MakeClassTree(compilation);
 
-            var methodEntityNames = hubMethods
-                .SelectMany(hub => hub.Value
-                    .SelectMany(ev => ev.Arguments
-                        .Select(arg => arg.TypeName)));
-
-            var eventEntityNames = hubEvents
-                .SelectMany(hub => hub.Value
-                    .SelectMany(ev => ev.Arguments
-                        .Select(arg => arg.TypeName)));
-
-            var allEntityNames = methodEntityNames
-                .Concat(eventEntityNames)
-                .Distinct()
-                .ToArray();
+            var allEntityNames = GetAllEntities(hubMethods, hubEvents);
 
             var entities = ProcessEntities(compilation, allEntityNames, cache);
 
-            throw new NotImplementedException();
+            return new SignalrMetadata
+            {
+                Entities = entities,
+                Methods = hubMethods.SelectMany(x => x.Value).ToArray(),
+                Events = hubEvents.SelectMany(x => x.Value).ToArray()
+            };
         }
 
         public Dictionary<string, SyntaxTree> MakeClassTree(Compilation compilation)
@@ -207,7 +199,11 @@ namespace Signalr.Hmg.Core
             return result;
         }
 
-        private Entity[] ProcessEntities(Compilation compilation, string[] entityNames, Dictionary<string, SyntaxTree> cache) 
+        private Entity[] ProcessEntities(
+            Compilation compilation, 
+            string[] entityNames, 
+            Dictionary<string, 
+            SyntaxTree> cache) 
         {
             if (!this.parseEntities) 
             {
@@ -278,7 +274,7 @@ namespace Signalr.Hmg.Core
 
             }
 
-            foreach (var entityName in entityNames)
+            foreach (var entityName in entityHash)
             {
                 if (!cache.ContainsKey(entityName))
                 {
@@ -485,6 +481,28 @@ namespace Signalr.Hmg.Core
             }
 
             return result.ToDictionary(x => x.Key, x => x.Value.ToArray());
+        }
+
+        private string[] GetAllEntities(
+            Dictionary<string, HubMethod[]> hubMethods, 
+            Dictionary<string, HubEvent[]> hubEvents) 
+        {
+            var methodEntityNames = hubMethods
+                .SelectMany(hub => hub.Value
+                    .SelectMany(ev => ev.Arguments
+                        .Select(arg => arg.TypeName)));
+
+            var eventEntityNames = hubEvents
+                .SelectMany(hub => hub.Value
+                    .SelectMany(ev => ev.Arguments
+                        .Select(arg => arg.TypeName)));
+
+            var allEntityNames = methodEntityNames
+                .Concat(eventEntityNames)
+                .Distinct()
+                .ToArray();
+
+            return allEntityNames;
         }
     }
 }

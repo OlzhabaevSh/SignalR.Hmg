@@ -5,17 +5,22 @@ namespace Signalr.Hmg.Tests.E2es.E2eTests
 {
     public class Tests
     {
-        private const string csProjPath = @"C:\Users\solzhabayev\source\repos\SignalR.Hmg\tests\e2es\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj";
+        private string csprojPath = string.Empty;
 
         [SetUp]
         public void Setup()
         {
+            var currentExecutionPath = AppDomain.CurrentDomain.BaseDirectory;
+
+            var path = @"..\..\..\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj";
+
+            this.csprojPath = Path.GetFullPath(Path.Combine(currentExecutionPath, path));
         }
 
         [Test]
         public async Task If_Parsing_Works()
         {
-            var service = SignalrMetadataService.CreateMetadataGenerator(csProjPath)
+            var service = SignalrMetadataService.CreateMetadataGenerator(csprojPath)
                 .ParseAll();
 
             var result = await service.GenerateMetadataAsync();
@@ -28,7 +33,6 @@ namespace Signalr.Hmg.Tests.E2es.E2eTests
             var events = result.Events;
 
             var entityes = result.Entities;
-
         }
 
         private SignalrMetadata GenerateCorrectVersionOfSignalRMetadata() 

@@ -6,9 +6,13 @@ namespace Signalr.Hmg.Clients.ConsoleApp
     {
         static async Task Main(string[] args)
         {
-            string csProjPath = @"C:\Users\solzhabayev\source\repos\SignalR.Hmg\tests\e2es\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj";
+            var currentExecutionPath = AppDomain.CurrentDomain.BaseDirectory;
 
-            var service = SignalrMetadataService.CreateMetadataGenerator(csProjPath)
+            var path = @"..\..\..\..\..\..\tests\e2es\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj";
+
+            var csprojPath = Path.GetFullPath(Path.Combine(currentExecutionPath, path));
+
+            var service = SignalrMetadataService.CreateMetadataGenerator(csprojPath)
                 .ParseAll();
 
             var result = await service.GenerateMetadataAsync();
