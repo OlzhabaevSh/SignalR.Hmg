@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CA64EA36-DBA1-4182-953B-0660847024FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{02BEAF6C-B879-46EB-86B3-DCB588DA4F1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8F393128-9776-4C99-A874-2C07A775D8E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "units", "units", "{A115F2E3-75D2-4F35-8294-C14DE84D10D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "e2es", "e2es", "{4BC71EF3-8E0C-434F-9E96-A87D5F5960D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice", "tests\e2es\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj", "{D6739C0D-D669-43BF-B8F8-C79D1FD8C141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Tests.E2es.E2eTests", "tests\e2es\Signalr.Hmg.Tests.E2es.E2eTests\Signalr.Hmg.Tests.E2es.E2eTests.csproj", "{449CEFFC-0E07-48E2-A363-0C04984770D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Core", "src\Signalr.Hmg.Core\Signalr.Hmg.Core.csproj", "{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Clients.ConsoleApp", "src\clients\Signalr.Hmg.Clients.ConsoleApp\Signalr.Hmg.Clients.ConsoleApp.csproj", "{55C3305F-10F0-4B41-8082-C9B63898F487}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6739C0D-D669-43BF-B8F8-C79D1FD8C141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6739C0D-D669-43BF-B8F8-C79D1FD8C141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6739C0D-D669-43BF-B8F8-C79D1FD8C141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6739C0D-D669-43BF-B8F8-C79D1FD8C141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449CEFFC-0E07-48E2-A363-0C04984770D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449CEFFC-0E07-48E2-A363-0C04984770D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449CEFFC-0E07-48E2-A363-0C04984770D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449CEFFC-0E07-48E2-A363-0C04984770D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55C3305F-10F0-4B41-8082-C9B63898F487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55C3305F-10F0-4B41-8082-C9B63898F487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55C3305F-10F0-4B41-8082-C9B63898F487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55C3305F-10F0-4B41-8082-C9B63898F487}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02BEAF6C-B879-46EB-86B3-DCB588DA4F1F} = {CA64EA36-DBA1-4182-953B-0660847024FC}
+		{A115F2E3-75D2-4F35-8294-C14DE84D10D7} = {8F393128-9776-4C99-A874-2C07A775D8E3}
+		{4BC71EF3-8E0C-434F-9E96-A87D5F5960D8} = {8F393128-9776-4C99-A874-2C07A775D8E3}
+		{D6739C0D-D669-43BF-B8F8-C79D1FD8C141} = {4BC71EF3-8E0C-434F-9E96-A87D5F5960D8}
+		{449CEFFC-0E07-48E2-A363-0C04984770D6} = {4BC71EF3-8E0C-434F-9E96-A87D5F5960D8}
+		{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E} = {CA64EA36-DBA1-4182-953B-0660847024FC}
+		{55C3305F-10F0-4B41-8082-C9B63898F487} = {02BEAF6C-B879-46EB-86B3-DCB588DA4F1F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7946866-5879-42F3-8CC3-1B1E35698DF4}
+	EndGlobalSection
+EndGlobal
