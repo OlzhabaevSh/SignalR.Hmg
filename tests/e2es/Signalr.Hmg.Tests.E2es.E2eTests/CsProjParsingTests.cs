@@ -12,7 +12,7 @@ namespace Signalr.Hmg.Tests.E2es.E2eTests
         {
             var currentExecutionPath = AppDomain.CurrentDomain.BaseDirectory;
 
-            var path = @"..\..\..\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj";
+            var path = @"..\..\..\..\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj";
 
             this.csprojPath = Path.GetFullPath(Path.Combine(currentExecutionPath, path));
         }
@@ -20,7 +20,8 @@ namespace Signalr.Hmg.Tests.E2es.E2eTests
         [Test]
         public async Task If_Parsing_Works()
         {
-            var service = SignalrMetadataService.CreateMetadataGenerator(csprojPath)
+            var service = SignalrMetadataService
+                .CreateMetadataGenerator(csprojPath)
                 .ParseAll();
 
             var result = await service.GenerateMetadataAsync();

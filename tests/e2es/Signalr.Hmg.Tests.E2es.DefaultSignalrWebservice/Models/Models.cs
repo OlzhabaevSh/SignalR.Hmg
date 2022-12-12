@@ -13,4 +13,14 @@
 
         public DateTime CurrentDate { get; set; }
     }
+
+    public class WrapperUserNotificationHubNotifiesTriggeredModel
+    {
+        public UserNotificationHubNotifiesTriggeredModel Data { get; set; }
+    }
+
+    public class WrapperModel<T> 
+    {
+        public T Data { get; set; }
+    }
 }

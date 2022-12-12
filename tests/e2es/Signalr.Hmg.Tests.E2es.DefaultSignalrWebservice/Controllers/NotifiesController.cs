@@ -28,6 +28,25 @@ namespace Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.Controllers
 
             await this.hubContext.Clients.All.SendAsync("notifiesTriggered", data);
 
+            var wrapperData = new WrapperUserNotificationHubNotifiesTriggeredModel()
+            {
+                Data = data
+            };
+
+            await this.hubContext.Clients.All.SendAsync("notifiesWithWrappedData", wrapperData);
+
+            var genericWrapperData = new WrapperModel<UserNotificationHubNotifiesTriggeredModel>()
+            {
+                Data = data
+            };
+
+            await this.hubContext.Clients.All.SendAsync("notifiesWithGenericWrappedData", genericWrapperData);
+
+
+            var someDictionary = new Dictionary<string, UserNotificationHubNotifiesTriggeredModel>();
+
+            await this.hubContext.Clients.All.SendAsync("notifiesWithDictionaryData", someDictionary);
+
             return Ok();
         }
     }
