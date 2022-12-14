@@ -13,13 +13,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "units", "units", "{A115F2E3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "e2es", "e2es", "{4BC71EF3-8E0C-434F-9E96-A87D5F5960D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice", "tests\e2es\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj", "{D6739C0D-D669-43BF-B8F8-C79D1FD8C141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice", "tests\e2es\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice\Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.csproj", "{D6739C0D-D669-43BF-B8F8-C79D1FD8C141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Tests.E2es.E2eTests", "tests\e2es\Signalr.Hmg.Tests.E2es.E2eTests\Signalr.Hmg.Tests.E2es.E2eTests.csproj", "{449CEFFC-0E07-48E2-A363-0C04984770D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Signalr.Hmg.Tests.E2es.E2eTests", "tests\e2es\Signalr.Hmg.Tests.E2es.E2eTests\Signalr.Hmg.Tests.E2es.E2eTests.csproj", "{449CEFFC-0E07-48E2-A363-0C04984770D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Core", "src\Signalr.Hmg.Core\Signalr.Hmg.Core.csproj", "{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Signalr.Hmg.Core", "src\Signalr.Hmg.Core\Signalr.Hmg.Core.csproj", "{ECD317C4-E4C2-4CCA-8BD5-EDEBD9E8045E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signalr.Hmg.Clients.ConsoleApp", "src\clients\Signalr.Hmg.Clients.ConsoleApp\Signalr.Hmg.Clients.ConsoleApp.csproj", "{55C3305F-10F0-4B41-8082-C9B63898F487}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Signalr.Hmg.Clients.ConsoleApp", "src\clients\Signalr.Hmg.Clients.ConsoleApp\Signalr.Hmg.Clients.ConsoleApp.csproj", "{55C3305F-10F0-4B41-8082-C9B63898F487}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

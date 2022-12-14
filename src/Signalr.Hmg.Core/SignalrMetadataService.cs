@@ -164,6 +164,7 @@ namespace Signalr.Hmg.Core
                     var eventItem = new HubMethod()
                     {
                         Name = item.Identifier.Text,
+                        HubName = hubName,
                         Arguments = new List<HubMethodArgument>()
                     };
 
@@ -470,6 +471,7 @@ namespace Signalr.Hmg.Core
                     hub.Add(new HubEvent()
                     {
                         Name = item.eventName,
+                        HubName = item.hubName,
                         Arguments = item.argumentTypes
                             .Select((x, i) => new HubEventArgument()
                             {

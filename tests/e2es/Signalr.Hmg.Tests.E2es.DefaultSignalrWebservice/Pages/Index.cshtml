@@ -1,0 +1,143 @@
+﻿@page
+@model Signalr.Hmg.Tests.E2es.DefaultSignalrWebservice.Pages.IndexModel
+@{
+}
+
+<html>
+    <head>
+        <title>SignalR interactive page</title>
+    </head>
+    <body>
+
+        <div id="app">
+
+            <section>
+                <div v-if="data == null">
+                    loading...
+                </div>
+                <div v-else>
+                    <div>
+                        <h3>Entities</h3>
+                        <ul>
+                            <li v-for="item in data.Entities">
+                                {{ item.Name }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Events</h3>
+                        <ul>
+                            <li v-for="item in data.Events">
+                                {{ item.HubName }} | {{ item.Name }}
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Methods</h3>
+                        <ul>
+                            <li v-for="item in data.Methods">
+                                {{ item.HubName }} | {{ item.Name }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div v-if="hubs == null">
+                    loading...
+                </div>
+                <div v-else>
+                    <div v-for="hub in hubs">
+                        <h4>{{ hub.Name }}</h4>
+
+                        <h5>Methods</h5>
+
+                        <div v-for="method in hub.methods">
+                            {{ method.Name }}
+                        </div>
+
+                        <h5>Events</h5>
+
+                        <div v-for="event in hub.events">
+                            {{ event.Name }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+        <script src="~/js/signalr/dist/browser/signalr.js"></script>
+        <script type="text/javascript">
+
+            const { createApp } = Vue
+
+            const parseHubs = (response) => {
+                
+                let hubsNames = {};
+
+                response.Methods.forEach(item => {
+                    if(hubsNames[item.HubName] == undefined) {
+                        hubsNames[item.HubName] = {
+                            methods: [],
+                            events: []
+                        };
+                    }
+
+                    hubsNames[item.HubName].methods.push(item);
+
+                });
+
+                response.Events.forEach(item => {
+                    if (hubsNames[item.HubName] == undefined) {
+                        hubsNames[item.HubName] = {
+                            methods: [],
+                            events: []
+                        };
+                    }
+
+                    hubsNames[item.HubName].events.push(item);
+                });
+
+                let result = [];
+
+                for(let x in hubsNames)
+                {
+                    result.push({
+                        Name: x,
+                        methods: hubsNames[x].methods,
+                        events: hubsNames[x].events
+                    });
+                }
+
+                return result;
+            };
+
+            createApp({
+                data() {
+                    return {
+                        data: null,
+                        hubs: null
+                    }
+                },
+                mounted() {
+                    axios
+                        .get('/signalr-export.json')
+                        .then(response => {
+                            console.info('response.data', response.data);
+                            this.data = response.data
+
+                            var hubs = parseHubs(response.data);
+                            console.info('hubs', hubs);
+                            this.hubs = hubs;
+                        })
+                }
+            }).mount('#app')
+
+        </script>
+    </body>
+</html>
